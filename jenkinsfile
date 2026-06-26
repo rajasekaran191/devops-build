@@ -6,7 +6,7 @@ pipeline {
         // ---------------- Clone Repo ----------------
         stage('Clone Repo') {
             steps {
-                git branch: 'main', url: 'https://github.com/rajasekaran191/devops-build.git'
+                git branch: 'dev', url: 'https://github.com/rajasekaran191/devops-build.git'
             }
         }
 
@@ -14,6 +14,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t rajasekaran191/dev:latest .'
+                sh 'echo "Starting build process..."'
+                sh 'docker push rajasekaran191/dev:latest'
+                sh 'echo "Build and push completed!"'
             }
         }
 
