@@ -6,7 +6,7 @@ set -e
 echo "Starting deployment..."
 
 # Pull latest production image (Jenkins will fail here if login fails)
-docker pull rajasekaran191/prod:latest
+docker pull rajasekaran191/dev:latest
 
 # Stop old container if it exists (errors safely ignored via || true)
 echo "Cleaning up old containers..."
